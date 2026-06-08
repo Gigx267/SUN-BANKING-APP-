@@ -183,6 +183,7 @@
             font-weight: 500;
             font-size: 14px;
             line-height: 1.45;
+            min-width: 200px;
         }
 
         .alert-text strong {
@@ -219,6 +220,66 @@
             background: var(--danger-bg);
             border-color: var(--danger);
             color: var(--danger);
+        }
+
+        /* Mobile Responsive Alert Banner */
+        @media (max-width: 1024px) {
+            .service-alert-banner {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 14px;
+                padding: 16px 20px;
+            }
+
+            .alert-text {
+                flex: 1;
+                width: 100%;
+                font-size: 13px;
+            }
+
+            .alert-contact {
+                width: 100%;
+                text-align: center;
+                white-space: normal;
+                padding: 10px 16px;
+                font-size: 13px;
+            }
+
+            .alert-dismiss-btn {
+                width: 100%;
+                font-size: 12px;
+                padding: 10px 16px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .service-alert-banner {
+                border-left-width: 4px;
+                padding: 12px 16px;
+                gap: 12px;
+                margin-bottom: 24px;
+            }
+
+            .alert-text {
+                font-size: 12px;
+                line-height: 1.4;
+            }
+
+            .alert-text strong {
+                display: block;
+                margin-bottom: 6px;
+                margin-right: 0;
+            }
+
+            .alert-contact {
+                font-size: 12px;
+                padding: 8px 12px;
+            }
+
+            .alert-dismiss-btn {
+                font-size: 11px;
+                padding: 8px 14px;
+            }
         }
 
         /* Stats Grid - BALANCE TEXT SIZE REDUCED FOR MOBILE (core fix) */
