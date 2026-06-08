@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>Sun Coast Bank — Digital Banking | Professional Edition</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <title>Sun Coast Bank — Professional Banking</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <style>
         * {
@@ -12,9 +12,9 @@
             box-sizing: border-box;
         }
 
-        /* ===== PROFESSIONAL REFINED COLOR ARCHITECTURE ===== */
+        /* ===== PROFESSIONAL COLOR ARCHITECTURE ===== */
         :root {
-            --bg-base: #F0F2F8;          /* subtle, airy background — premium banking feel */
+            --bg-base: #F0F2F8;
             --surface-card: #FFFFFF;
             --surface-hover: #F8FAFE;
             --border-subtle: #E6EDF4;
@@ -23,24 +23,16 @@
             --text-secondary: #4A5B6E;
             --text-tertiary: #7C8B9C;
             --text-muted: #9AABBB;
-            
-            /* core brand: confident, trustworthy navy & gold accent */
-            --brand-primary: #0A2647;     /* deep navy - authority */
+            --brand-primary: #0A2647;
             --brand-primary-light: #1E3A5F;
-            --accent-gold: #C9A03D;       /* refined gold — prestige & security */
+            --accent-gold: #C9A03D;
             --accent-gold-light: #E8D5A3;
-            --accent-gold-soft: #FDF8EF;
-            
             --success: #2B7E3E;
             --success-bg: #EDF7F0;
             --danger: #BC4E5A;
             --danger-bg: #FEF3F2;
-            --warning: #C67C2E;
-            --warning-bg: #FEF8E7;
-            
             --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.03), 0 1px 2px rgba(0, 0, 0, 0.05);
             --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.05), 0 2px 4px rgba(0, 0, 0, 0.02);
-            --shadow-lg: 0 20px 32px -12px rgba(0, 0, 0, 0.08);
             --easing: cubic-bezier(0.2, 0.9, 0.4, 1.1);
         }
 
@@ -60,7 +52,7 @@
             padding: 36px 32px 48px;
         }
 
-        /* refined header */
+        /* header refinements */
         .header {
             display: flex;
             justify-content: space-between;
@@ -94,7 +86,6 @@
             font-size: 26px;
             font-weight: 700;
             letter-spacing: -0.4px;
-            color: var(--text-primary);
             background: linear-gradient(135deg, var(--brand-primary) 20%, var(--brand-primary-light) 80%);
             background-clip: text;
             -webkit-background-clip: text;
@@ -169,7 +160,7 @@
             color: var(--text-primary);
         }
 
-        /* alert banner – professional warning styling */
+        /* Alert banner */
         .service-alert-banner {
             background: white;
             border-left: 5px solid var(--danger);
@@ -182,7 +173,6 @@
             flex-wrap: wrap;
             gap: 18px;
             box-shadow: var(--shadow-sm);
-            backdrop-filter: none;
             background: #FFFEFB;
             border: 1px solid var(--border-subtle);
         }
@@ -231,7 +221,7 @@
             color: var(--danger);
         }
 
-        /* stats cards */
+        /* Stats Grid - BALANCE TEXT SIZE REDUCED FOR MOBILE (core fix) */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -252,13 +242,11 @@
             transform: translateY(-3px);
             box-shadow: var(--shadow-md);
             background: var(--surface-hover);
-            border-color: var(--border-medium);
         }
 
         .stat-card.featured {
             background: linear-gradient(125deg, #FFFFFF, #FCF8F0);
             border-left: 4px solid var(--accent-gold);
-            box-shadow: var(--shadow-md);
         }
 
         .stat-header {
@@ -272,13 +260,15 @@
             letter-spacing: 0.3px;
         }
 
+        /* Base stat amount size (desktop) */
         .stat-amount {
-            font-size: 34px;
+            font-size: 32px;
             font-weight: 800;
-            letter-spacing: -1px;
+            letter-spacing: -0.5px;
             color: var(--text-primary);
             margin-bottom: 10px;
             font-feature-settings: "tnum";
+            word-break: break-word;
         }
 
         .stat-change {
@@ -292,7 +282,74 @@
         .stat-change.up { color: var(--success); }
         .stat-change.down { color: var(--danger); }
 
-        /* dashboard grid */
+        /* ===== RESPONSIVE: Reduce balance text significantly on mobile ===== */
+        @media (max-width: 768px) {
+            .app-container {
+                padding: 20px 18px 32px;
+            }
+            
+            .stats-grid {
+                gap: 14px;
+                margin-bottom: 28px;
+            }
+            
+            .stat-card {
+                padding: 18px 16px;
+                border-radius: 22px;
+            }
+            
+            /* SMALLER BALANCE TEXT FOR MOBILE - IMPROVES READABILITY & USER FRIENDLINESS */
+            .stat-amount {
+                font-size: 22px !important;     /* reduced from 32px to 22px on mobile */
+                letter-spacing: -0.3px;
+                margin-bottom: 6px;
+                font-weight: 700;
+            }
+            
+            .stat-header {
+                font-size: 12px;
+                margin-bottom: 12px;
+            }
+            
+            .stat-change {
+                font-size: 11px;
+            }
+            
+            /* additional spacing & card density */
+            .stat-card.featured {
+                padding: 18px 16px;
+            }
+            
+            /* also make recent transaction font slightly tighter */
+            .transaction-amount {
+                font-size: 14px;
+            }
+            
+            .transaction-details h4 {
+                font-size: 13.5px;
+            }
+            
+            .section-title {
+                font-size: 18px;
+            }
+        }
+
+        /* extra breakpoint for small devices (<=480px) for even better fit */
+        @media (max-width: 480px) {
+            .stat-amount {
+                font-size: 20px !important;
+            }
+            
+            .stat-card {
+                padding: 14px 12px;
+            }
+            
+            .stats-grid {
+                gap: 12px;
+            }
+        }
+
+        /* dashboard components */
         .dashboard-grid {
             display: grid;
             grid-template-columns: 1.3fr 0.9fr;
@@ -379,7 +436,6 @@
             font-size: 16px;
         }
 
-        /* action buttons - professional */
         .action-buttons {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -527,7 +583,7 @@
             padding: 32px;
             max-width: 400px;
             width: 90%;
-            box-shadow: var(--shadow-lg);
+            box-shadow: var(--shadow-md);
             border: 1px solid var(--border-subtle);
         }
 
@@ -553,7 +609,7 @@
             font-size: 13px;
             font-weight: 600;
             z-index: 1100;
-            box-shadow: var(--shadow-lg);
+            box-shadow: var(--shadow-md);
             transition: transform 0.3s var(--easing);
             white-space: nowrap;
             border: 1px solid var(--accent-gold-light);
@@ -573,7 +629,6 @@
         }
 
         @media (max-width: 768px) {
-            .app-container { padding: 24px 18px; }
             .nav-links { display: none; }
             .bottom-nav {
                 display: flex;
@@ -601,6 +656,7 @@
             .bottom-nav-item.active { color: var(--brand-primary); }
             body { padding-bottom: 80px; }
             .toast { white-space: normal; width: 85%; text-align: center; font-size: 12px; }
+            .ios-panel { padding: 20px; }
         }
     </style>
 </head>
@@ -628,7 +684,7 @@
         </div>
     </div>
 
-    <!-- service alert with refined professional color -->
+    <!-- service alert banner -->
     <div id="serviceAlertBanner" class="service-alert-banner">
         <div class="alert-text">
             <strong>⚠ Online Banking Temporarily Restricted</strong> — For enhanced security verification, full digital access is paused. Please contact Sun Coast Private Banking.
@@ -641,14 +697,14 @@
 
     <div class="stats-grid">
         <div class="stat-card featured">
-            <div class="stat-header"><span>Total Net Worth</span><span style="font-size: 18px;">⚖️</span></div>
+            <div class="stat-header"><span>Total Net Worth</span><span>⚖️</span></div>
             <div class="stat-amount" id="totalBalance">$0.00</div>
             <div class="stat-change up">↑ 4.8% this quarter</div>
         </div>
         <div class="stat-card">
             <div class="stat-header"><span>Checking</span></div>
             <div class="stat-amount" id="checkingBalance">$0.00</div>
-            <div class="stat-change">Liquid</div>
+            <div class="stat-change">Available</div>
         </div>
         <div class="stat-card">
             <div class="stat-header"><span>Savings & Reserve</span></div>
@@ -732,7 +788,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
-    // Professional banking data (non-intrusive lock simulation)
+    // Core data (professional banking simulation)
     let balances = { checking: 47648.00, savings: 784745.00 };
     let transactions = [
         { id: 1, description: "Vance Marketplace", date: "Today", amount: -24.50 },
@@ -801,22 +857,21 @@
         });
     }
 
-    const toast = document.getElementById('toast');
-    function showToastMessage(msg, isWarning = true) {
-        toast.innerText = msg;
-        toast.classList.add('visible');
-        setTimeout(() => toast.classList.remove('visible'), 4000);
+    const toastEl = document.getElementById('toast');
+    function showToastMessage(msg) {
+        toastEl.innerText = msg;
+        toastEl.classList.add('visible');
+        setTimeout(() => toastEl.classList.remove('visible'), 4000);
     }
 
     function serviceLockAction(actionName = "Transaction") {
-        showToastMessage(`⚠️ ${actionName} temporarily unavailable. Please contact +1 (800) 344-5692 to restore access.`);
+        showToastMessage(`⚠️ ${actionName} unavailable. Please contact +1 (800) 344-5692 to restore access.`);
     }
 
-    // dismiss alert
     document.getElementById('closeAlertBtn')?.addEventListener('click', () => {
         const banner = document.getElementById('serviceAlertBanner');
         if(banner) banner.style.display = 'none';
-        showToastMessage("Reminder: Call Sun Coast Bank to restore full digital access.", false);
+        showToastMessage("Reminder: Call Sun Coast Bank to restore full digital access.");
     });
 
     const modal = document.getElementById('modal');
@@ -828,7 +883,6 @@
     document.querySelector('.close-modal')?.addEventListener('click', () => modal.style.display = 'none');
     window.onclick = (e) => { if(e.target === modal) modal.style.display = 'none'; };
 
-    // all transaction buttons locked gracefully
     document.getElementById('submitTransfer')?.addEventListener('click', (e) => { e.preventDefault(); serviceLockAction("Wire transfer"); });
     document.getElementById('depositBtn')?.addEventListener('click', () => serviceLockAction("Deposit"));
     document.getElementById('sendMoneyBtn')?.addEventListener('click', () => serviceLockAction("Send money"));
